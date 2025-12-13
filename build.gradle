@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.diablo.clone'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' } // Often needed for JME extensions
+}
+
+// Define the JME version variable for consistency
+def jme3Version = '3.6.1-stable'
+
+dependencies {
+    // The Core Game Engine
+    implementation "org.jmonkeyengine:jme3-core:$jme3Version"
+    implementation "org.jmonkeyengine:jme3-desktop:$jme3Version"
+
+    // The Rendering Library (LWJGL3)
+    implementation "org.jmonkeyengine:jme3-lwjgl3:$jme3Version"
+
+    // Utilities (Optional but recommended for loading assets)
+    implementation "org.jmonkeyengine:jme3-plugins:$jme3Version"
+}
+
+application {
+    // We will create this class in the next sub-phase
+    mainClass = 'com.diablo.clone.core.Main'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
