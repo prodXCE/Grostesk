@@ -1,5 +1,6 @@
 package com.game.grostesk.core;
 
+import com.game.grostesk.systems.CameraSystem;
 import com.jme3.app.SimpleApplication;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
@@ -29,16 +30,11 @@ public class Main extends SimpleApplication {
 
         System.out.println("The Forge is lit. The Engine is running.");
 
-        Box boxMesh = new Box(1, 1, 1);
+        stateManager.attach(new com.game.grostesk.systems.CameraSystem());
+        stateManager.attach(new com.game.grostesk.systems.WorldSystem());
 
-        Geometry heroGeo = new Geometry("Hero", boxMesh);
-
-        Material heroMat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
-        heroMat.setColor("Color", ColorRGBA.Blue);
-
-        heroGeo.setMaterial(heroMat);
-
-        rootNode.attachChild(heroGeo);
+        com.jme3.scene.shape.Box boxMesh = new com.jme3.scene.shape.Box(0.5f, 0.5f, 0.5f);
+        com.jme3.scene.Geometry boxMesh = new com.jme3.audio(x:)
 
     }
 }
